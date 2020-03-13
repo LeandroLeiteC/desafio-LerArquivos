@@ -24,8 +24,8 @@ public class LerArquivoApp {
 		List<Produto> listaProdutos = new ArrayList<>();
 		List<DadosMercado> listaDadosMercado = new ArrayList<DadosMercado>();
 		
-		File fileOperacoes = new File("C://Operacoes.csv");
-		File fileDadosMercado = new File("C://DadosMercado.csv");
+		File fileOperacoes = new File("Operacoes.csv");
+		File fileDadosMercado = new File("DadosMercado.csv");
 		
 		String[] linhaOperacao = new String[14];
 		String[] linhaDadosMercado = new String[3];
@@ -120,7 +120,7 @@ public class LerArquivoApp {
 			}
 		}
 		
-		try(FileWriter escrever = new FileWriter("resultado.txt")) {
+		try(FileWriter escrever = new FileWriter("resultado.csv")) {
 			escrever.append("SubProduto");
 			escrever.append(";");
 			escrever.append("Resultado");
@@ -130,7 +130,8 @@ public class LerArquivoApp {
 				escrever.append(";");
 				escrever.append(String.valueOf(p.getResultado()));
 				escrever.append("\n");
-				System.out.println(p.getNome() + " | " + p.getResultado());
+//				Descomente a próxima linha caso queira ver os resultados no Console
+//				System.out.println(p.getNome() + " | " + p.getResultado());
 			}
 			
 		} catch (IOException e) {
