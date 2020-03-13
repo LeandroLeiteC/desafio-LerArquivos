@@ -41,7 +41,7 @@ public class LerArquivoApp {
 				linhaOperacao = s.split(";");
 				s = null;
 				
-				//Pegando dias corridos das operações
+				//Pegando dias corridos das operaï¿½ï¿½es
 				datas = linhaOperacao[1].split("/");
 				LocalDate dataInicio = LocalDate.of(Integer.parseInt(datas[2]), Integer.parseInt(datas[1]), Integer.parseInt(datas[0]));
 				datas = linhaOperacao[2].split("/");
@@ -49,7 +49,7 @@ public class LerArquivoApp {
 				long diasCorridosOperacoes = ChronoUnit.DAYS.between(dataInicio, dataFinal);
 				
 				
-				//Pegando ID_PREÇO
+				//Pegando ID_PREï¿½O
 				int idPrecoOperacoes = Integer.parseInt(linhaOperacao[13]);
 				
 				//Pegando Quantidade
@@ -80,10 +80,10 @@ public class LerArquivoApp {
 			e.printStackTrace();
 		}
 		
-		//PEGAR IDPREÇO DIAS CORRIDOS E PREÇO DA DADOS MERCADO
+		//PEGAR IDPREï¿½O DIAS CORRIDOS E PREï¿½O DA DADOS MERCADO
 		
 		try(BufferedReader brDadosMercado = new BufferedReader(new FileReader(fileDadosMercado))) {
-			brDadosMercado.readLine(); // Pular título
+			brDadosMercado.readLine(); // Pular tï¿½tulo
 			
 			String s;
 			while( (s = brDadosMercado.readLine()) != null) {
@@ -91,13 +91,13 @@ public class LerArquivoApp {
 				linhaDadosMercado = s.split(";");
 				s = null;
 				
-				//Pegando ID_PREÇO
+				//Pegando ID_PREï¿½O
 				int idPrecoDadosMercado = Integer.parseInt(linhaDadosMercado[0]);
 				
 				//Pegar Dias corridos
 				long diasCorridosDadosMercado = Long.parseLong(linhaDadosMercado[1]);
 				
-				//Pegar preço
+				//Pegar preï¿½o
 				double preco = Double.parseDouble(linhaDadosMercado[2].replace(",", "."));
 				
 				DadosMercado dm = new DadosMercado(idPrecoDadosMercado, diasCorridosDadosMercado, preco);
@@ -120,7 +120,7 @@ public class LerArquivoApp {
 			}
 		}
 		
-		try(FileWriter escrever = new FileWriter("resultado.csv")) {
+		try(FileWriter escrever = new FileWriter("resultado.txt")) {
 			escrever.append("SubProduto");
 			escrever.append(";");
 			escrever.append("Resultado");
@@ -130,7 +130,7 @@ public class LerArquivoApp {
 				escrever.append(";");
 				escrever.append(String.valueOf(p.getResultado()));
 				escrever.append("\n");
-//				Descomente a próxima linha caso queira ver os resultados no Console
+//				Descomente a prï¿½xima linha caso queira ver os resultados no Console
 //				System.out.println(p.getNome() + " | " + p.getResultado());
 			}
 			
